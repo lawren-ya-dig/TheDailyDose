@@ -1,0 +1,25 @@
+.login {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  .input-box {
+      border: solid black 1px;
+  }
+
+  .login-button-box {
+      padding: 10px 20px;
+  }
+
+  .login-button {
+    border: solid black 1px;
+  }

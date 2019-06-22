@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Dashboard from './views/dashboard/dashboard';
+import About from './views/about/about';
+import CreateBlog from './views/createBlog/createBlog';
+import Login from './views/login/login';
+import axios from 'axios';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  componentDidMount(){
+    axios.get('/api/test')
+      .then((response)=>{
+        console.log(response.data)
+      })
+    
+  }
+  render() {
+    return (
+      <div className="app">
+        <Router>
+          <Switch>
+            <Route path="/dashboard" component={Dashboard}/>
+            <Route path="/aboutme" component={About}/>
+            <Route path="/createBlog" component={CreateBlog}/>
+            <Route exact path="/" component={Login}/>
+          </Switch>
+        </Router>
+      </div>
+    )
+  }
 }
+
 
 export default App;
