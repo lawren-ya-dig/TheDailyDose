@@ -8,19 +8,19 @@ import './createBlog.css'
 class createBlog extends Component {
     state = {
         title: '',
-        body: ''
+        body: '',
     }
 
 
     submitBlog = () => {
         const blogObj = {
             title: this.state.title,
-            body: this.state.body
+            body: this.state.body,
+            user_id: this.state.user_id,
         };
         axios.post('/api/dashboard', blogObj)
             .then(({data}) => {
                 if(data.success) {
-                    console.log('You did it!')
                     this.props.setPost(data.blog);
                     this.props.history.push('/createBlog')
                 } else {
@@ -36,30 +36,30 @@ class createBlog extends Component {
         })
     }
 
+    
+
 
     render() {
+       
         return (
-            <div className="blog">
+            <div className="createBlog">
                 <Navbar/>
                     <div className="blog-form">
-                        <div className="blog-title">
-                            <input 
+                            <input className="input-title"
                                 type="text"
                                 placeholder="Title"
                                 name="title"
                                 value={this.state.title}
                                 onChange={this.handleChange}
                             />
-                        </div>
-                        <div className="blog-body">
-                            <input
+                        
+                            <input className="input-body"
                                 type="text"
                                 name="body"
                                 value={this.state.body}
                                 onChange={this.handleChange}
                             />
-                        </div>
-                    <button onChange={this.submitBlog}>Submit</button>
+                    <button onClick={this.submitBlog} className="submit-button">Submit</button>
                 </div>
              </div>
         )

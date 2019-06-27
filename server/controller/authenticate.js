@@ -7,7 +7,7 @@ module.exports = {
         const db = req.app.get('db')
         const {email, password} = req.body;
 
-        let currentUser;
+        let currentUser = {};
 
         db.user_table.findOne({email})
             .then((user) => {
@@ -22,9 +22,7 @@ module.exports = {
             .then((isMatch) => {
                 if(isMatch){
                     delete currentUser.password
-
                     req.session.user = currentUser
-
                     res.send({success: true, user:currentUser})
                 } else {
                     throw("Wrong Credentials")
@@ -55,7 +53,7 @@ module.exports = {
             .then((user)=>{
                 delete user.password;
                 req.session.user = user;
-                res.send({success: true, user:user})
+                res.send({success: true, user})
             })
             .catch((err)=>{
                 res.send({success:false, err})

@@ -21,8 +21,6 @@ massive(process.env.CONNECTION_STRING)
     })
 
 
-
-
 app.use(cors())
 app.use(bodyParser.json())
 app.use(session({
@@ -31,9 +29,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 60000 }
 }))
-app.get('/api/test', (req, res, next) =>{
-    res.send('This worked!')
-})
+
 
 
 //Login form 
@@ -45,6 +41,31 @@ app.post('/api/register', authenticate.register)
 app.get('/api/dashboard', blog.getBlogs)
 app.post('/api/dashboard', blog.postBlog)
 
+
+//authorizing user
+app.get('/auth/user', (req, res, next)=>{
+    if(req.session.user){
+        res.send({success:true})
+    }else{
+        res.send({success:false})
+    }
+})
+
+//check to see if user is still logged in. 
+app.use('/api/*', (req, res, next) => {
+    if(!req.session.user){
+        res.send({success:false, message:'please login'})
+    }else{
+        next();
+    }
+})
+
+// //Log out method. 
+// app.post('/api/logout', (req, res, next)=>{
+//     // this destroys the session and removes the user object.
+//     req.session.destroy();
+//     res.send({success:true})
+// })
 
 
 const port = process.env.PORT || 8080;

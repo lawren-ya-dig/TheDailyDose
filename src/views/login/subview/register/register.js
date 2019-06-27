@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './register.css';
 
 class register extends Component {
     state = {
@@ -24,14 +25,33 @@ class register extends Component {
         })
     }
     render() {
-        const inputs = Object.keys(this.state).map((e,i ) => {
-            return <input type="text" key={i} placeholder={e} name={e} value={this.state[e]} onChange={this.handleChange}/>
-        })
+        // const inputs = Object.keys(this.state).map((e,i ) => {
+        //     return <input className="input-box" type="text" key={i} placeholder={e} name={e} value={this.state[e]} onChange={this.handleChange}/>
+        // })
         return (
-            <div>
-                {inputs}
-                <button onClick={this.register}>Register</button>
+
+            <div className="register-form">
+                <div className="register-box">
+                    <input className="input-box" type="text" placeholder="First Name" name="first_name" value={this.state.first_name} onChange={this.handleChange}/>
+                </div>
+                <div className="register-box">
+                    <input className="input-box" type="text" placeholder="Last Name" name="last_name" value={this.state.last_name} onChange={this.handleChange} />
+                </div>
+                <div className="register-box">
+                    <input className="input-box" type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} />
+                </div>
+                <div className="register-box">
+                    <input className="input-box" type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
+                </div>
+                <div className="register-button-box">
+                    <button className="register-button" onClick={this.register}>register</button>
+                </div>
             </div>
+    
+            // <div className="register-box">
+            //     {inputs}
+            //     <button onClick={this.register} className="register-button">Register</button>
+            // </div>
         )
     }
 }

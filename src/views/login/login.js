@@ -38,7 +38,7 @@ class login extends Component {
             .then(({ data }) => {
                 if(data.success){
                     this.props.setUser(data.user);
-                    this.props.hustory.push('/dashboard');
+                    this.props.history.push('/dashboard');
                 } else {
                     alert('User already exists, please login');
                 }
@@ -51,26 +51,30 @@ class login extends Component {
         })
     }
 
-
     render() {
+
         const register = this.state.showRegister ? <Register register={this.register} /> : '';
         return (
             <div className="login">
+                <div className="the-header">
+                    <h1> The Daily Dose </h1>
+                </div>
                 {register}
                 {this.state.showRegister ? (
                     ''
                 ) : (
-                        <div className="input-box">
-                            <input type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}/>
-                            
-                        <div className="input-box">
-                            <input type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
+                    <div className="login-form">
+                        <div className="login-box">
+                            <input className="input-box" type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}/>
+                        </div>
+                        <div className="login-box">
+                            <input className="input-box" type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
                             </div>
                         <div className="login-button-box">
                             <button className="login-button" onClick={this.login}>login</button>
                             <button className="login-button" onClick={this.showRegister}>register</button>
-                            </div>
                         </div>
+                    </div>
                 )}
                 
             </div>
