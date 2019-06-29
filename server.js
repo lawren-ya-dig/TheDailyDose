@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
+const path = require('path');
 const authenticate = require('./server/controller/authenticate');
 const blog = require('./server/controller/blog')
 require('dotenv').config()
@@ -11,7 +12,7 @@ const app = express();
 
 
 //Database set up 
-massive(process.env.CONNECTION_STRING)
+massive(process.env.DATABASE_URL)
     .then((dbInstance) => {
         app.set('db', dbInstance)
         console.log('db is connected')
@@ -30,7 +31,11 @@ app.use(session({
     cookie: { maxAge: 60000 }
 }))
 
+app.use(express.static(path.join(__dirname, '/build')));
 
+app.get('/api/ping', (req,res)=>{
+    res.send('Healthy!');
+})
 
 //Login form 
 app.post('/api/login', authenticate.login)
@@ -66,6 +71,14 @@ app.use('/api/*', (req, res, next) => {
 //     req.session.destroy();
 //     res.send({success:true})
 // })
+
+
+
+app.get('/*', (req, res) => {
+    res.sendFile('index.html', {
+        root: path.join(__dirname, "build")
+    })
+});
 
 
 const port = process.env.PORT || 8080;

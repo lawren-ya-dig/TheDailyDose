@@ -1,3 +1,5 @@
+
+
 .navbar {
     display: flex;
     margin-top: 170px;
@@ -9,17 +11,23 @@
     font: inherit;
     border-top: solid rgb(54, 54, 54) 3px; 
     border-bottom: solid rgb(54, 54, 54) 3px; 
+    background-image: none;
+    background-color: white;
 }
 
 .navbar-link {
     padding: 2px 30px;
     font-family: 'Montserrat';
+    background-image: none;
+    background-color: white;
 }
 
 
 a:link, a:visited{
     color: black;
     text-decoration: none;
+    background-image: none;
+    background-color: white;
 }
 a:hover{
     color: rgb(146, 146, 146);

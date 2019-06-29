@@ -8,20 +8,21 @@ import './createBlog.css'
 class createBlog extends Component {
     state = {
         title: '',
-        body: '',
+        content: '',
     }
 
 
     submitBlog = () => {
         const blogObj = {
             title: this.state.title,
-            body: this.state.body,
+            content: this.state.content,
             user_id: this.state.user_id,
         };
-        axios.post('/api/dashboard', blogObj)
-            .then(({data}) => {
-                if(data.success) {
-                    this.props.setPost(data.blog);
+        axios.post('/api/dashboard', {blogObj})
+            .then((response) => {
+                console.log(response.data)
+                if(response.data.success) {
+                    this.props.setPost(response.data.blog);
                     this.props.history.push('/createBlog')
                 } else {
                     alert('Could not submit post');
@@ -55,8 +56,8 @@ class createBlog extends Component {
                         
                             <input className="input-body"
                                 type="text"
-                                name="body"
-                                value={this.state.body}
+                                name="content"
+                                value={this.state.content}
                                 onChange={this.handleChange}
                             />
                     <button onClick={this.submitBlog} className="submit-button">Submit</button>

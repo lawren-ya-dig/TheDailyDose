@@ -25,7 +25,7 @@ module.exports = {
                     req.session.user = currentUser
                     res.send({success: true, user:currentUser})
                 } else {
-                    throw("Wrong Credentials")
+                    throw("Wrong credentials")
                 }
             })
             .catch((err) => {
@@ -37,7 +37,7 @@ module.exports = {
 
         const db = req.app.get('db');
 
-        const {email, password, first_name, last_name} = req.body;
+        const {email, password, first_name, last_name, id} = req.body;
 
         db.user_table.findOne({email})
             .then((user) => {
@@ -48,7 +48,7 @@ module.exports = {
                 }
             })
             .then((hash) => {
-                return db.user_table.insert({email, password:hash, first_name, last_name})
+                return db.user_table.insert({email, password:hash, first_name, last_name, id})
               })
             .then((user)=>{
                 delete user.password;

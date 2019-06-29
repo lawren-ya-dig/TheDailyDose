@@ -12,7 +12,7 @@ class dashboard extends Component {
 
 
     componentDidMount(){
-        axios.get('/api/dashboard')
+        axios.get(`/api/dashboard/`)
         .then(({data})=>{
             if(data.success){
                 this.setState({

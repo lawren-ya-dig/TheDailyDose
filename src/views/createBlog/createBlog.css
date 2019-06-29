@@ -5,34 +5,44 @@
     margin: auto;
     padding: 0px;
     margin-top: 4vh;
+
 }
 
 .input-title {
     width: 50vw;
     height: 4vh;
     border: black solid 1px;
+    border-radius: 5px;
     display: flex;
     margin-bottom: 20px;
     padding: 0px;
     font-size: 100%;
     font: inherit;
-    font-family: 'Montserrat'
+    font-family: 'Montserrat';
+    background-image: none;
+    background-color: white;
 }
 
 .input-body {
     width: 50vw;
     height: 50vh;
     border: solid black 1px;
+    border-radius: 5px;
     display: flex;
     margin-bottom: 20px;
     padding: 0px;
     font-size: 100%;
     font: inherit;
-    font-family: 'Montserrat'
+    font-family: 'Montserrat';
+    background-image: none;
+    background-color: white;
 }
 
 .submit-button {
     border: solid black 1px;
     border-radius: 5px;
-    font-family: 'Montserrat'
+    font-family: 'Montserrat';
+    background-image: none;
+    background-color: white;
+
 }

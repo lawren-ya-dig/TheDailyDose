@@ -1,3 +1,4 @@
-/* * {
-    background-color: rgb(44, 74, 172)
-} */
+* {
+    background-image: url("https://cdn.pixabay.com/photo/2016/03/27/07/32/light-1282314_1280.jpg");
+    background-size: 100% auto;
+}

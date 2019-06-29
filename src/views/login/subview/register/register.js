@@ -14,7 +14,8 @@ class register extends Component {
             email: this.state.email,
             password: this.state.password,
             first_name: this.state.first_name,
-            last_name: this.state.last_name
+            last_name: this.state.last_name,
+            id: '',
         }
         this.props.register(registerObj)
     }
@@ -25,9 +26,6 @@ class register extends Component {
         })
     }
     render() {
-        // const inputs = Object.keys(this.state).map((e,i ) => {
-        //     return <input className="input-box" type="text" key={i} placeholder={e} name={e} value={this.state[e]} onChange={this.handleChange}/>
-        // })
         return (
 
             <div className="register-form">
@@ -48,10 +46,6 @@ class register extends Component {
                 </div>
             </div>
     
-            // <div className="register-box">
-            //     {inputs}
-            //     <button onClick={this.register} className="register-button">Register</button>
-            // </div>
         )
     }
 }

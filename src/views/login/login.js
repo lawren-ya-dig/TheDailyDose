@@ -18,9 +18,9 @@ class login extends Component {
             password:this.state.password
         };
         axios.post('/api/login', loginObj)
-            .then(({data}) => {
-                if(data.success) {
-                    this.props.setUser(data.user);
+            .then((response) => {
+                if(response.data.success) {
+                    this.props.setUser(response.data.user);
                     this.props.history.push('/dashboard')
                 } else {
                     alert('Wrong credentials');
@@ -35,9 +35,9 @@ class login extends Component {
     };
     register = registerObj => {
         axios.post('/api/register', registerObj)
-            .then(({ data }) => {
-                if(data.success){
-                    this.props.setUser(data.user);
+            .then((response) => {
+                if(response.data.success){
+                    this.props.setUser(response.data.user);
                     this.props.history.push('/dashboard');
                 } else {
                     alert('User already exists, please login');
@@ -57,13 +57,13 @@ class login extends Component {
         return (
             <div className="login">
                 <div className="the-header">
-                    <h1> The Daily Dose </h1>
+                    <h1 className="login-h1"> The Daily Dose </h1>
                 </div>
                 {register}
                 {this.state.showRegister ? (
                     ''
                 ) : (
-                    <div className="login-form">
+                    <div className="login-div">
                         <div className="login-box">
                             <input className="input-box" type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}/>
                         </div>
