@@ -12,16 +12,16 @@ module.exports = {
 
     postBlog: (req, res, next) => {
 		const db = req.app.get('db');
-		const newVar = parseInt(req.session.id)
+		console.log(req.session.user);
 		const blogObject = {
-			id: newVar,
+			user_id: req.session.user.id,
 			title: req.body.blogObj.title,
 			content: req.body.blogObj.content
 		};
 		db.blog_feed.insert(blogObject)
 			.then(newBlog => {
 				console.log(newBlog)
-				return db.blog_feed({ user_id: req.session.id });
+				return db.blog_feed({ user_id: req.session.user.id });
 			})
 			.then(newFeed => {
 				res.send({ success: true, newFeed });

@@ -23,6 +23,7 @@ module.exports = {
                 if(isMatch){
                     delete currentUser.password
                     req.session.user = currentUser
+                    req.session.save();
                     res.send({success: true, user:currentUser})
                 } else {
                     throw("Wrong credentials")
@@ -37,8 +38,7 @@ module.exports = {
 
         const db = req.app.get('db');
 
-        const {email, password, first_name, last_name, id} = req.body;
-
+        const {email, password, first_name, last_name} = req.body;
         db.user_table.findOne({email})
             .then((user) => {
                 if(user){
@@ -48,11 +48,12 @@ module.exports = {
                 }
             })
             .then((hash) => {
-                return db.user_table.insert({email, password:hash, first_name, last_name, id})
+                return db.user_table.insert({email, password:hash, first_name, last_name})
               })
             .then((user)=>{
                 delete user.password;
                 req.session.user = user;
+                req.session.save();
                 res.send({success: true, user})
             })
             .catch((err)=>{

@@ -10,19 +10,15 @@ import './App.css';
 
 
 class App extends Component {
-  // componentDidMount() {
-  //   axios.get('/auth/user')
-  //     .then(response => {
-  //       if(!response.data.success){
-  //         this.props.history.push('/dashboard')
-  //       }
-  //     });
-  // 	}
+  componentDidMount() {
+    axios.get('/auth/user')
+      .then(response => {
+        if(!response.data.success){
+          this.props.history.push('/dashboard')
+        }
+      });
+  	}
 
-  async componentDidMount() {
-    const ping = await axios.get('/api/ping')
-    console.log(ping.data)
-  }
 
   render() {
     return (

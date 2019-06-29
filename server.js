@@ -33,9 +33,7 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, '/build')));
 
-app.get('/api/ping', (req,res)=>{
-    res.send('Healthy!');
-})
+
 
 //Login form 
 app.post('/api/login', authenticate.login)
