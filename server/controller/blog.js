@@ -12,9 +12,9 @@ module.exports = {
 
     postBlog: (req, res, next) => {
 		const db = req.app.get('db');
-		console.log('running');
+		const newVar = parseInt(req.session.id)
 		const blogObject = {
-			user_id: req.session.id,
+			id: newVar,
 			title: req.body.blogObj.title,
 			content: req.body.blogObj.content
 		};

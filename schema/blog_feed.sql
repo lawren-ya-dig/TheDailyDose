@@ -1,8 +1,7 @@
 create table blog_feed (
-    id serial,
-    user_id VARCHAR not null,
+    id serial PRIMARY KEY,
+    user_id INT not null,
     title VARCHAR not null,
     content VARCHAR not null,
-    PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user_table(id)
 )
