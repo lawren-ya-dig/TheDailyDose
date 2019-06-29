@@ -3,5 +3,5 @@ create table user_table (
     first_name VARCHAR(50)not null,
     last_name VARCHAR(50) not null,
     email VARCHAR(100)not null,
-    password VARCHAR(100) not null,
+    password VARCHAR(100) not null
 );
