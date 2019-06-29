@@ -22,7 +22,8 @@ class createBlog extends Component {
             .then((response) => {
                 console.log(response.data)
                 if(response.data.success) {
-                    this.props.setPost(response.data.blog);
+                    debugger
+                    this.props.setBlog(response.data.blog);
                     this.props.history.push('/createBlog')
                 } else {
                     alert('Could not submit post');

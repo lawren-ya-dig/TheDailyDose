@@ -21,10 +21,10 @@ module.exports = {
 		db.blog_feed.insert(blogObject)
 			.then(newBlog => {
 				console.log(newBlog)
-				return db.blog_feed({ user_id: req.session.user.id });
+				return db.blog_feed.find({ user_id: req.session.user.id });
 			})
-			.then(newFeed => {
-				res.send({ success: true, newFeed });
+			.then(blog => {
+				res.send({ success: true, blog });
 			})
 			.catch(err => {
 				res.send({ success: false, err });

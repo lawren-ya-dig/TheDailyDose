@@ -23,7 +23,6 @@ module.exports = {
                 if(isMatch){
                     delete currentUser.password
                     req.session.user = currentUser
-                    req.session.save();
                     res.send({success: true, user:currentUser})
                 } else {
                     throw("Wrong credentials")
@@ -53,7 +52,6 @@ module.exports = {
             .then((user)=>{
                 delete user.password;
                 req.session.user = user;
-                req.session.save();
                 res.send({success: true, user})
             })
             .catch((err)=>{
