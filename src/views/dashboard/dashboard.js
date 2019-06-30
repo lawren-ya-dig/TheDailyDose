@@ -26,7 +26,7 @@ class dashboard extends Component {
 
     render() {
         const blogs = this.state.blogFeed.map((e, r)=>{
-            return <Blog key={e.id} id={e.id} title={e.title} body={e.body} image_url={e.image_url}/>
+            return <Blog key={e.id} id={e.id} title={e.title} content={e.content} image_url={e.image_url}/>
         })
         
         return (

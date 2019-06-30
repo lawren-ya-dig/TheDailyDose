@@ -1,11 +1,16 @@
-
+.createBlog{
+    background-size: 100% auto;
+}
 .blog-form{
     justify-content: center;
     width: 50vw;
+    background-size: 100% auto;
     margin: auto;
     padding: 0px;
     margin-top: 4vh;
-
+    background-image: none;
+    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+    background: rgba(255, 249, 249, 0);
 }
 
 .input-title {
@@ -44,5 +49,4 @@
     font-family: 'Montserrat';
     background-image: none;
     background-color: white;
-
 }
