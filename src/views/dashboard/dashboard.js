@@ -30,10 +30,13 @@ class dashboard extends Component {
         })
         
         return (
-            <div className="dashboard">
+            <div>
                 <Navbar/>
-                {blogs}
+                    <div className="dashboard">
+                
+                    {blogs}
                     
+                    </div>
             </div>
         )
     }

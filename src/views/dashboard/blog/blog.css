@@ -1,22 +1,33 @@
-.blog{
-    background-image: none;
-    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
-    background: rgba(255, 249, 249, 0);
+
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 .each-blog{
-    display: flex;
     justify-content: center;
-    border: solid black 1px;
     background-image: none;
     background-color: white;
     width: 20vw;
-
+    border-radius: 14px;
 }
 
-h1, P {
-    display: block;
+.blog-title {
     justify-content: center;
+    align-items: center;
+    text-align: center;
     background-image: none;
     background-color: white;
+    border: solid white 1px;
+    border-radius: 14px;
+}
+
+.blog-content {
+    text-align: center;
+    background-image: none;
+    background-color: white;
+    padding: 10px;
+    border: solid white 1px;
+    border-radius: 14px;
 }

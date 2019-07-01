@@ -1,0 +1,8 @@
+.dashboard {
+    background-image: none;
+    background-color: white;
+    background: rgba(255, 249, 249, 0);
+    display: flex;
+    justify-content: center;
+    padding: 4vh 0;
+}

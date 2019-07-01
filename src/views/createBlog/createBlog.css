@@ -6,7 +6,7 @@
     width: 50vw;
     background-size: 100% auto;
     margin: auto;
-    padding: 0px;
+    padding-bottom: 5vh;
     margin-top: 4vh;
     background-image: none;
     background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
